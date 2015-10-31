@@ -19,7 +19,7 @@ import javax.swing.*;
 public class GomokuGUI implements Observer{
 
     private GomokuClient client;
-    private GomokuGameState gamestate;
+    private GomokuGameState gameState;
 
     private JLabel messageLabel;
     private JButton connectButton;
@@ -37,9 +37,9 @@ public class GomokuGUI implements Observer{
      */
     public GomokuGUI(GomokuGameState g, GomokuClient c){
         client = c;
-        gamestate = g;
+        gameState = g;
         client.addObserver(this);
-        gamestate.addObserver(this);
+        gameState.addObserver(this);
 
         createLayout();
     }
@@ -61,7 +61,7 @@ public class GomokuGUI implements Observer{
                 super.mouseClicked(e);
 
                 int[] gridPos = gamePanel.getGridPosition(e.getX(), e.getY());
-                gamestate.move(gridPos[0], gridPos[1]);
+                gameState.move(gridPos[0], gridPos[1]);
             }
         });
 
